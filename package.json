@@ -2,6 +2,8 @@
   "name": "civilspace_challenge",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.2.5",
+    "@apollo/react-hooks": "^4.0.0",
     "@babel/core": "^7.0.0",
     "@babel/plugin-transform-regenerator": "^7.10.4",
     "@babel/plugin-transform-runtime": "^7.11.0",
@@ -15,10 +17,13 @@
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-preset-env": "^1.7.0",
     "dotenv-webpack": "^1.8.0",
+    "graphql": "^15.4.0",
+    "graphql-tag": "^2.11.0",
     "react": "^16.13.1",
     "react-apollo": "^3.1.5",
     "react-dom": "^16.13.1",
-    "sass-loader": "^9.0.3"
+    "react-router-dom": "^5.2.0",
+    "sass-loader": "^10.0.4"
   },
   "version": "0.1.0",
   "devDependencies": {

@@ -1,9 +1,35 @@
 // Libraries
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { ApolloProvider, useQuery } from "@apollo/react-hooks";
+import { client } from "graphql/client";
 
-const X = () => <div>Hello World</div>;
+// Components
+import Home from "home/components/Home";
+import ArticlesContainer from "articles/components/ArticlesContainer";
 
-const el = document.querySelector("#react-app");
+// Routes
+const ROOT = "/";
+const ARTICLES = "/articles";
 
-ReactDOM.render(<X></X>, el);
+const App = () => {
+  return (
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <Switch>
+          <Route
+            strict
+            path={ARTICLES}
+            render={(props) => <ArticlesContainer {...props} />}
+          />
+          <Route strict path={ROOT} render={(props) => <Home {...props} />} />
+        </Switch>
+      </BrowserRouter>
+    </ApolloProvider>
+  );
+};
+
+const rootElement = document.querySelector("#react-app");
+
+render(<App />, rootElement);

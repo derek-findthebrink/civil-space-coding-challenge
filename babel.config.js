@@ -72,7 +72,11 @@ module.exports = function (api) {
         "module-resolver",
         {
           root: ["."],
-          alias: {},
+          alias: {
+            graphql: "./frontend/graphql",
+            home: "./frontend/features/home",
+            articles: "./frontend/features/articles",
+          },
         },
       ],
     ].filter(Boolean),
