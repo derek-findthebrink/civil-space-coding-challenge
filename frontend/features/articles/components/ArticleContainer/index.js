@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useQuery, gql } from "@apollo/client";
-import { ArticleItem } from "../ArticleItem";
+import { ArticleHeader } from "../ArticleHeader";
 
 const getArticleQuery = () => gql`
   query Article($id: String!) {
@@ -10,7 +10,7 @@ const getArticleQuery = () => gql`
       id
       imageUrl
       title
-      introduction
+      body
       createdAt
       author {
         id
@@ -36,18 +36,15 @@ const ArticleContainer = ({
   if (error) return <p>Error!</p>;
 
   const {
-    article: { author, imageUrl, title, introduction, createdAt },
+    article: { author, imageUrl, title, body, createdAt },
   } = data;
 
   return (
-    <ArticleItem
-      id={id}
-      author={author}
-      createdAt={createdAt}
-      title={title}
-      imageUrl={imageUrl}
-      introduction={introduction}
-    />
+    <>
+      <ArticleHeader author={author} createdAt={createdAt} title={title} />
+      <img className="article__image" src={imageUrl} alt="This is best described by..." />
+      <p>{body}</p>
+    </>
   );
 };
 ArticleContainer.propTypes = {
