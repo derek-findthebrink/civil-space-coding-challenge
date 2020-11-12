@@ -10,6 +10,7 @@ const getArticleQuery = () => gql`
       id
       imageUrl
       title
+      introduction
       body
       createdAt
       author {
@@ -36,13 +37,14 @@ const ArticleContainer = ({
   if (error) return <p>Error!</p>;
 
   const {
-    article: { author, imageUrl, title, body, createdAt },
+    article: { author, imageUrl, title, body, createdAt, introduction },
   } = data;
 
   return (
     <>
       <ArticleHeader author={author} createdAt={createdAt} title={title} />
       <img className="article__image" src={imageUrl} alt="This is best described by..." />
+      <p>{introduction}</p>
       <p>{body}</p>
     </>
   );

@@ -15,6 +15,7 @@ import Home from "home/components/Home";
 // eslint-disable-next-line import/no-unresolved
 import ArticlesContainer from "articles/components/ArticlesContainer";
 import ArticleContainer from "articles/components/ArticleContainer";
+import Layout from '../components/Layout';
 
 // Routes
 const ROOT = "/";
@@ -31,21 +32,23 @@ const App = () => {
           rel="stylesheet"
         />
       </Helmet>
-      <BrowserRouter>
-        <Switch>
-          <Route
-            strict
-            path={ARTICLE}
-            render={(props) => <ArticleContainer {...props} />}
-           />
-          <Route
-            strict
-            path={ARTICLES}
-            render={(props) => <ArticlesContainer {...props} />}
-          />
-          <Route strict path={ROOT} render={(props) => <Home {...props} />} />
-        </Switch>
-      </BrowserRouter>
+      <Layout>
+        <BrowserRouter>
+          <Switch>
+            <Route
+              strict
+              path={ARTICLE}
+              render={(props) => <ArticleContainer {...props} />}
+            />
+            <Route
+              strict
+              path={ARTICLES}
+              render={(props) => <ArticlesContainer {...props} />}
+            />
+            <Route strict path={ROOT} render={(props) => <Home {...props} />} />
+          </Switch>
+        </BrowserRouter>
+      </Layout>
     </ApolloProvider>
   );
 };

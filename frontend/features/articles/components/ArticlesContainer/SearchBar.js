@@ -24,8 +24,8 @@ export class SearchBar extends React.Component {
 
   handleReset() {
     this.setState({
-      sortBy: 'LATEST',
-      titleContains: '',
+      sortBy: "LATEST",
+      titleContains: "",
     });
   }
 
@@ -40,21 +40,33 @@ export class SearchBar extends React.Component {
     const { titleContains, sortBy } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Search something..."
-          value={titleContains}
-          onChange={this.handleChangeTitleContains} />
-        <label htmlFor="sortBy">
-          Sort By
-          <select id="sortBy" value={sortBy} onChange={this.handleChangeSortBy}>
+      <form onSubmit={this.handleSubmit} className="search-bar">
+        <p className="sr-only">Article search form</p>
+        <fieldset className="search-bar__fieldset">
+          <input
+            className="search-bar__title-input"
+            type="text"
+            placeholder="Search something..."
+            value={titleContains}
+            onChange={this.handleChangeTitleContains}
+          />
+        </fieldset>
+        <fieldset className="search-bar__fieldset">
+          <label className="search-bar__label" htmlFor="sortBy">Sort By</label>
+          <select
+            className="search-bar__sort-input"
+            name="sortBy"
+            id="sortBy"
+            value={sortBy}
+            onChange={this.handleChangeSortBy}
+          >
             <option value="LATEST">Latest</option>
             <option value="TITLE">Title</option>
           </select>
-        </label>
-        <input type="submit" value="Go" />
-        <button onClick={this.handleReset}>Reset</button>
+        </fieldset>
+        <div>
+          <input className="search-bar__submit" type="submit" name="submit" value="Go" />
+        </div>
       </form>
     );
   }

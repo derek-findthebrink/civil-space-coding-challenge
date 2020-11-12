@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { useQuery, gql } from "@apollo/client";
 import { ArticleItem } from "../ArticleItem";
 import { SearchBar } from "./SearchBar";
+import { Layout } from "../../../../components/Layout";
 
 const getArticlesListQuery = () => gql`
   query GetArticles($titleContains: String, $sortBy: ArticleSortEnum) {
@@ -21,12 +22,6 @@ const getArticlesListQuery = () => gql`
     }
   }
 `;
-
-
-const Layout = ({ children }) => <div>{children}</div>;
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 
 const ArticlesContainer = ({ location: { search } }) => {
@@ -52,7 +47,7 @@ const ArticlesContainer = ({ location: { search } }) => {
   const hasArticles = data.articles.length !== 0;
 
   return (
-    <Layout>
+    <>
       <SearchBar
         titleContains={titleContains}
         sortBy={sortBy}
@@ -77,7 +72,7 @@ const ArticlesContainer = ({ location: { search } }) => {
           )}
         </ul>
       )}
-    </Layout>
+    </>
   );
 };
 ArticlesContainer.propTypes = {

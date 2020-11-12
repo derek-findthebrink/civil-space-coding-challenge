@@ -1,3 +1,26 @@
+@mixin button() {
+  display: inline-block;
+  padding: 10px 40px;
+  text-align: center;
+  text-decoration: none;
+  line-height: $font-line-height-base;
+  background-color: white;
+  border: 2px solid $teal;
+  font-family: $font-heading-stack;
+  font-weight: bold;
+
+  &,
+  &:visited {
+    color: $teal;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: black;
+    color: white;
+    background-color: black;
+  }
+}
 
 .articles-container {
   &__ul {
@@ -33,26 +56,39 @@
   }
 
   &__read-more {
-    display: inline-block;
-    padding: 10px 40px;
-    text-align: center;
-    text-decoration: none;
-    line-height: $font-line-height-base;
-    background-color: white;
-    border: 2px solid $teal;
-    font-family: $font-heading-stack;
+    @include button();
+  }
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+  background-color: #ecf0f1;
+  font-family: $font-heading-stack;
+
+  &__label {
+    padding-right: 16px;
     font-weight: bold;
+  }
 
-    &,
-    &:visited {
-      color: $teal;
-    }
+  &__fieldset {
+    border: 0;
+  }
 
-    &:hover,
-    &:focus {
-      border-color: black;
-      color: white;
-      background-color: black;
-    }
+  &__title-input {
+    width: 240px;
+    padding: 8px 4px;
+  }
+
+  &__sort-input {
+    width: 160px;
+    padding: 8px 4px;
+  }
+
+  &__submit {
+    @include button;
+    padding: 12px 20px;
   }
 }
