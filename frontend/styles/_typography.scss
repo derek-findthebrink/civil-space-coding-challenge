@@ -2,20 +2,26 @@
 // base typography styles
 // https://www.gridlover.net/try
 
+$font-heading-stack: 'Open Sans', sans-serif;
+$font-body-stack: 'Source Serif Pro', serif;
+
 html,
 .root {
-  font-size: 16px;
+  font-family: $font-body-stack;
+  font-size: 12px;
   line-height: 9px;
+  color: $teal;
 }
 body,
 .article {
-  font-family: sans-serif;
+  font-family: $font-body-stack;
   font-size: 1em;
   line-height: 1.125em;
 }
 h1,
 .h1 {
   font-size: 1.75em;
+  font-family: $font-heading-stack;
   line-height: 1.28571429em;
   margin-top: 0.32142857em;
   margin-bottom: 0.64285714em;
@@ -23,6 +29,7 @@ h1,
 h2,
 .h2 {
   font-size: 1.4375em;
+  font-family: $font-heading-stack;
   line-height: 1.17391304em;
   margin-top: 0.39130435em;
   margin-bottom: 0.39130435em;
@@ -30,6 +37,7 @@ h2,
 h3,
 .h3 {
   font-size: 1.1875em;
+  font-family: $font-heading-stack;
   line-height: 1.42105263em;
   margin-top: 0.47368421em;
   margin-bottom: 0em;
@@ -37,6 +45,7 @@ h3,
 h4,
 .h4 {
   font-size: 1em;
+  font-family: $font-heading-stack;
   line-height: 1.125em;
   margin-top: 0.5625em;
   margin-bottom: 0em;
@@ -44,6 +53,7 @@ h4,
 h5,
 .h5 {
   font-size: 1em;
+  font-family: $font-heading-stack;
   line-height: 1.125em;
   margin-top: 0.5625em;
   margin-bottom: 0em;

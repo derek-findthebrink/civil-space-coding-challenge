@@ -4,6 +4,7 @@ import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
+import { Helmet } from "react-helmet";
 // eslint-disable-next-line import/no-unresolved
 import { client } from "graphql/client";
 // TODO: consider fixing the importing situation here -> webpacker has this in hand, can we patch the rule?
@@ -21,6 +22,13 @@ const ARTICLES = "/articles";
 const App = () => {
   return (
     <ApolloProvider client={client}>
+      <Helmet>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&family=Open+Sans:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
       <BrowserRouter>
         <Switch>
           <Route

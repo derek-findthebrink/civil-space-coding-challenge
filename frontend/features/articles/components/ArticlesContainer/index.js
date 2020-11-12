@@ -27,10 +27,10 @@ const ArticlesContainer = () => {
   if (error) return <p>Error!</p>;
 
   return (
-    <ul>
+    <ul className="articles-container__ul">
       {data.articles.map(
         ({ id, imageUrl, title, introduction, createdAt, author }) => (
-          <li key={id}>
+          <li className="articles-item__li" key={id}>
             <ArticleItem
               id={id}
               imageUrl={imageUrl}
