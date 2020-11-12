@@ -14,11 +14,18 @@ module Resolvers
     end
 
     option :filter, type: ArticleFilter, with: :apply_filter
+    # option :sort, type: Types::ArticleSortEnum, with: :apply_sort
 
     def apply_filter(scope, value)
       branches = normalize_filters(value).reduce { |a, b| a.or(b)  }
       scope.merge branches
     end
+
+    # def apply_sort(scope, value)
+    # TODO: cleanup
+    #   binding.pry
+    #   scope = Article.all
+    # end
 
     def normalize_filters(value, branches = [])
       scope = Article.all
