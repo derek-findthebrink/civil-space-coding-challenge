@@ -1,0 +1,72 @@
+// START: gridlover
+// base typography styles
+// https://www.gridlover.net/try
+
+html, .root {
+  font-size: 16px;
+  line-height: 9px;
+}
+body, .article {
+  font-family: sans-serif;
+  font-size: 1em;
+  line-height: 1.125em;
+}
+h1, .h1 {
+  font-size: 1.75em;
+  line-height: 1.28571429em;
+  margin-top: 0.32142857em;
+  margin-bottom: 0.64285714em;
+}
+h2, .h2 {
+  font-size: 1.4375em;
+  line-height: 1.17391304em;
+  margin-top: 0.39130435em;
+  margin-bottom: 0.39130435em;
+}
+h3, .h3 {
+  font-size: 1.1875em;
+  line-height: 1.42105263em;
+  margin-top: 0.47368421em;
+  margin-bottom: 0em;
+}
+h4, .h4 {
+  font-size: 1em;
+  line-height: 1.125em;
+  margin-top: 0.5625em;
+  margin-bottom: 0em;
+}
+h5, .h5 {
+  font-size: 1em;
+  line-height: 1.125em;
+  margin-top: 0.5625em;
+  margin-bottom: 0em;
+}
+p, ul, ol, pre, table, blockquote {
+  margin-top: 0em;
+  margin-bottom: 0.5625em;
+}
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+/* Let's make sure all's aligned */
+hr, .hr {
+  border: 1px solid;
+  margin: -1px 0;
+}
+a, b, i, strong, em, small, code {
+  line-height: 0;
+}
+sub, sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+// END: gridlover
