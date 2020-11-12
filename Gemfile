@@ -12,9 +12,13 @@ gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.4.6', require: false
 
+gem 'search_object_graphql', '0.3.1'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
   gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :development do
