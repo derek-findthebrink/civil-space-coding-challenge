@@ -7,11 +7,6 @@ const Wrapper = styled.div`
   background-image: url("${(props) => props.imageUrl}");
 `;
 
-const HR = styled.hr`
-  width: 52px;
-  margin: 44px 0;
-`;
-
 export const ArticleItem = ({
   id,
   imageUrl,
@@ -22,7 +17,7 @@ export const ArticleItem = ({
 }) => {
   return (
     <article className="article-item" role="contentinfo" aria-label="Article">
-      <HR />
+      <hr className="article-item__accent-hr" />
       <ArticleHeader
         title={title}
         createdAt={createdAt}
