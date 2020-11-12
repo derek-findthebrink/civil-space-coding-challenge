@@ -3,9 +3,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useQuery, gql } from "@apollo/client";
 
-const getArticlesListQuery = () => gql`
-  query GetArticle($articleID: String!) {
-    articles {
+const getArticleQuery = () => gql`
+  query Article($id: String!) {
+    article(articleId: $id) {
       id
       imageUrl
       title
@@ -25,9 +25,9 @@ const ArticleContainer = ({
     params: { id },
   },
 }) => {
-  const { loading, error, data } = useQuery(getArticlesListQuery(), {
+  const { loading, error, data } = useQuery(getArticleQuery(), {
     variables: {
-      articleID: id,
+      id,
     },
   });
 

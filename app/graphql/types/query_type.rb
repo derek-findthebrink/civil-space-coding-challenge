@@ -4,9 +4,17 @@ module Types
     # They will be entry points for queries on your schema.
 
     field :articles, [Types::ArticleType], null: true
+    field :article, Types::ArticleType, null: true do
+      description "Find an article by ID"
+      argument :article_id, String, required: true
+    end
 
     def articles
       Article.all
+    end
+
+    def article(article_id:)
+      Article.find(article_id)
     end
   end
 end

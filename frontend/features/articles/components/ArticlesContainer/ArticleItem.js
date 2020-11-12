@@ -30,6 +30,7 @@ export const ArticleItem = ({
           <p className="article-item__byline">
             <small>
               {author.firstName} {author.lastName}
+              {/* TODO: convert to spacing component */}
               &nbsp;|&nbsp;
               <time dateTime={formatArticleDate(createdAt)}>
                 {humanizeDate(createdAt)}
