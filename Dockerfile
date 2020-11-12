@@ -13,8 +13,6 @@ RUN \
     tzdata
 
 ENV APP_HOME /app
-ENV RAILS_ENV production
-ENV NODE_ENV production
 
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME

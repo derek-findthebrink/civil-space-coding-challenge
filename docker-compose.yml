@@ -4,8 +4,6 @@ services:
     image: postgres:12.1-alpine
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    ports:
-      - "5432:5432"
 
   rails:
     build: .
@@ -13,8 +11,6 @@ services:
       - NODE_ENV=development
       - RAILS_ENV=development
     command: ./entrypoint.sh
-    volumes:
-      - ".:/app"
     ports:
       - "3000:3000"
     depends_on:
