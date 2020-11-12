@@ -83,12 +83,13 @@ Here are a couple helpful articles that inspired some of the setup for this appl
 
 - Clone the repository
 - In the repository
-	- Run docker-compose up
-	- Install dependencies & configure environment:
+	- Run `docker-compose up`
+  	- This will start the database only
+	- In a separate terminal, install dependencies & configure environment:
 		- run `npm install`
 		- run `bin/bundle install`
 		- run `bin/rails db:setup`
-	- In a separate terminal, `run bin/webpack && bin/rails s`
+	- run `bin/webpack && bin/rails s`
 	- Navigate to http://localhost:3000 on your favourite browser
 
 
