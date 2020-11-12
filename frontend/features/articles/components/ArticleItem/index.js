@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { formatArticleDate } from "./formatArticleDate";
-import { humanizeDate } from "./humanizeDate";
+import { ArticleHeader } from "../ArticleHeader";
 
 const Wrapper = styled.div`
   background-image: url("${(props) => props.imageUrl}");
@@ -24,21 +23,11 @@ export const ArticleItem = ({
   return (
     <article className="article-item" role="contentinfo" aria-label="Article">
       <HR />
-      <header>
-        <h1>{title}</h1>
-        <div>
-          <p className="article-item__byline">
-            <small>
-              {author.firstName} {author.lastName}
-              {/* TODO: convert to spacing component */}
-              &nbsp;|&nbsp;
-              <time dateTime={formatArticleDate(createdAt)}>
-                {humanizeDate(createdAt)}
-              </time>
-            </small>
-          </p>
-        </div>
-      </header>
+      <ArticleHeader
+        title={title}
+        createdAt={createdAt}
+        author={author}
+      />
       <Wrapper
         className="article-item__content-wrapper"
         imageUrl={`${imageUrl}?cid=${id}`}
