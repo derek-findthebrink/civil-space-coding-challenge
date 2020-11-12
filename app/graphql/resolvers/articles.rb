@@ -6,7 +6,6 @@ module Resolvers
     include SearchObject.module(:graphql)
 
     scope { Article.all }
-
     type [Types::ArticleType]
 
     class ArticleFilter < ::Types::BaseInputObject
@@ -14,26 +13,38 @@ module Resolvers
     end
 
     option :filter, type: ArticleFilter, with: :apply_filter
-    # option :sort, type: Types::ArticleSortEnum, with: :apply_sort
+    option :order, type: Types::ArticleSortEnum, with: :apply_sort
 
-    def apply_filter(scope, value)
-      branches = normalize_filters(value).reduce { |a, b| a.or(b)  }
-      scope.merge branches
-    end
 
-    # def apply_sort(scope, value)
-    # TODO: cleanup
-    #   binding.pry
-    #   scope = Article.all
-    # end
+    private
 
-    def normalize_filters(value, branches = [])
-      scope = Article.all
-      scope = scope.where('title LIKE ?', "%#{value[:title_contains]}%") if value[:title_contains]
+      def apply_filter(scope, value)
+        branches = normalize_filters(value).reduce { |a, b| a.or(b) }
+        scope.merge branches
+      end
 
-      branches << scope
+      def apply_sort(scope, value)
+        branches = normalize_sort(value).reduce { |a, b| a.or(b) }
+        scope.merge branches
+      end
 
-      branches
-    end
+      def normalize_sort(value, branches = [])
+        scope = Article.all
+        scope = scope.order 'created_at DESC' if value == 'LATEST'
+        scope = scope.order 'title ASC' if value == 'TITLE'
+
+        branches << scope
+
+        branches
+      end
+
+      def normalize_filters(value, branches = [])
+        scope = Article.all
+        scope = scope.where('lower(title) LIKE ?', "%#{value[:title_contains].downcase}%") if value[:title_contains]
+
+        branches << scope
+
+        branches
+      end
   end
 end
