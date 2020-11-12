@@ -1,0 +1,24 @@
+@mixin button() {
+  display: inline-block;
+  padding: 16px 52px;
+  text-align: center;
+  text-decoration: none;
+  line-height: $font-line-height-base;
+  background-color: white;
+  border: 2px solid $teal;
+  font-family: $font-heading-stack;
+  font-weight: bold;
+  cursor: pointer;
+
+  &,
+  &:visited {
+    color: $teal;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: black;
+    color: white;
+    background-color: black;
+  }
+}

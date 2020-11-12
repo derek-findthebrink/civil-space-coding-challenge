@@ -1,28 +1,3 @@
-@mixin button() {
-  display: inline-block;
-  padding: 16px 52px;
-  text-align: center;
-  text-decoration: none;
-  line-height: $font-line-height-base;
-  background-color: white;
-  border: 2px solid $teal;
-  font-family: $font-heading-stack;
-  font-weight: bold;
-  cursor: pointer;
-
-  &,
-  &:visited {
-    color: $teal;
-  }
-
-  &:hover,
-  &:focus {
-    border-color: black;
-    color: white;
-    background-color: black;
-  }
-}
-
 .articles-container {
   &__ul {
     padding-left: 0;
@@ -45,7 +20,7 @@
   }
 
   &__content-wrapper {
-    height: 300px;
+    height: 400px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
