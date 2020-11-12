@@ -79,4 +79,106 @@ Here are a couple helpful articles that inspired some of the setup for this appl
 
 ## Your Considerations/Setup
 
-This is a place for you to add your specific setup instructions or considerations regarding your implementation.
+### Run Instructions
+
+- Clone the repository
+- In the repository
+	- Run docker-compose up
+	- Install dependencies & configure environment:
+		- run `npm install`
+		- run `bin/bundle install`
+		- run `bin/rails db:setup`
+	- In a separate terminal, `run bin/webpack && bin/rails s`
+	- Navigate to http://localhost:3000 on your favourite browser
+
+
+### Derek's Working Notes
+
+#### Requirements
+
+- [x] When users navigate to the /articles route, a list of article should be displayed matching the designs (ignore the search bar and sorting options unless you're completing the relevant bonus objectives)
+	- [x] base
+		- [x] configure graphql article type
+		- [x] configure author type
+		- [x] attach apollo
+		- [ ] STRETCH: configure pagination
+	- [x] matching the designs
+		- [x] font-family: open sans
+		- [x] STRETCH: create layout component
+		- [ ] STRETCH: improve loading screen
+		- [ ] STRETCH: test + improve error screen
+- [x] Articles should be fetched from Rails using GraphQL
+- [x] Each article should display the title, introduction, image, author, and the date the article was created
+	- [x] title
+	- [x] intro
+	- [x] image
+	- [x] author
+	- [x] date
+- [x] When articles are clicked (Read More), a new tab should be opened displaying the body of the article
+	- [x] configure new route
+	- [x] add webpack and display article
+	- [x] GQL to fetch single article
+- [x] Build your components using modern React, including 'hooks' based components
+- [x] Push to github
+	- [x] public repo
+
+#### Style & DX
+
+- [x] Install pry (rails pry?)
+- [x] Implement eslint linting (or perhaps prettier?)
+
+#### Bonus
+
+- [x] Make the articles searchable by title
+	- [x] add graphql setup
+	- [x] implement frontend
+- [x] Make the articles sortable by various criteria like created date or title
+	- [x] add graphql setup
+	- [x] implement frontend
+- [ ] Use a state management library such as Redux
+- [ ] Add unit tests! We like RSpec, Jest, and React Testing Library
+	- [ ] rails/graph
+		- [ ] Article Tests
+		- [ ] Author Tests
+		- [ ] Schema Tests
+- [ ] Dockerize your application (use a dockerfile and docker-compose)
+
+#### Stretch
+
+- [ ] Split webpack bundle into new one for article/:id route
+- [ ] Ensure browser-based font resizing works as expected (a11y)
+- [x] Improve homepage
+- [ ] Add helmet titles
+- [ ] add 404 pages
+	- [ ] article#show -> article not found
+- [ ] add error boundaries to containers
+- [ ] Enable scss loading on a component basis (stop using base styles file)
+	- [ ] variables need to carry into new components
+- [x] Perfect match styles to mockup
+	- [x] targets:
+		- [x] article headings
+		- [x] article byline
+		- [x] font sizing
+		- [x] font paragraph line height
+- [ ] Remove Go button -> rely instead on deboucing onChange events on each input
+- [ ] Verify browsers
+	- [ ] firefox
+	- [ ] safari
+	- [ ] mobile/chrome
+	- [ ] mobile/safari
+
+#### Clean
+
+- [ ] remove unused files
+	- [ ] backend
+		- [ ] json api?
+	- [ ] frontend
+		- [ ] graph folder?
+- [ ] babel styled-components plugin
+- [ ] resolve all TODOs
+- [ ] Wave all pages & patch
+- [ ] Figure out URL switching when running article search
+- [ ] Refactor SCSS to align precisely w/ components
+- [ ] mobile styles
+- [ ] verify file size and pagespeed
+	- [ ] optimize where possible
