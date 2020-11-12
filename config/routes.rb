@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root "pages#home"
   post "/graphql", to: "graphql#execute"
   get "/articles", to: "articles#index"
+  get "/article/:id", to: "articles#show"
 end

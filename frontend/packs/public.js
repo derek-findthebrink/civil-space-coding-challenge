@@ -14,10 +14,12 @@ import { client } from "graphql/client";
 import Home from "home/components/Home";
 // eslint-disable-next-line import/no-unresolved
 import ArticlesContainer from "articles/components/ArticlesContainer";
+import ArticleContainer from "articles/components/ArticleContainer";
 
 // Routes
 const ROOT = "/";
 const ARTICLES = "/articles";
+const ARTICLE = "/article/:id";
 
 const App = () => {
   return (
@@ -31,6 +33,11 @@ const App = () => {
       </Helmet>
       <BrowserRouter>
         <Switch>
+          <Route
+            strict
+            path={ARTICLE}
+            render={(props) => <ArticleContainer {...props} />}
+           />
           <Route
             strict
             path={ARTICLES}
