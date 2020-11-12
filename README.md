@@ -84,16 +84,13 @@ Here are a couple helpful articles that inspired some of the setup for this appl
 - Clone the repository
 - In the repository
   - Run `docker-compose up`
-    - This will start the database only
-  - In a separate terminal, install dependencies & configure environment:
-    - run `npm install`
-    - run `bin/bundle install`
-    - run `bin/rails db:setup`
-  - run `bin/webpack && bin/rails s`
-  - Navigate to http://localhost:3000 on your favourite browser
+    - I had an issue here regarding docker credHelpers -> I had to remove the key credHelpers from my ~/.docker/config.json file
+    - Please note that the docker container for rails is not meant for active development, it's just meant to serve the app without any fuss
+  - Wait for the build process to finish
+  - Wait for the rails container to eventually start (a line should eventually show that says `Puma starting in single mode...`)
+  - Navigate to localhost:3000 on your favourite browser
 
-
-### Derek's Working Notes
+### Derek's working notes
 
 #### Requirements
 
@@ -138,48 +135,65 @@ Here are a couple helpful articles that inspired some of the setup for this appl
   - [x] implement frontend
 - [ ] Use a state management library such as Redux
 - [ ] Add unit tests! We like RSpec, Jest, and React Testing Library
+  - [ ] rails/controllers
+    - [ ] articles#index
+    - [ ] articles#show
   - [ ] rails/graph
-    - [ ] Article Tests
-    - [ ] Author Tests
-    - [ ] Schema Tests
-- [ ] Dockerize your application (use a dockerfile and docker-compose)
+    - [ ] Article tests
+    - [ ] Author tests
+      - [ ] type
+      - [ ] filtering
+      - [ ] sorting
+    - [ ] Schema execution tests
+  - [ ] frontend
+    - [ ] packs/application.js
+    - [ ] components/layout
+    - [ ] features/articles-container
+    - [ ] features/article-container
+    - [ ] features/article-header
+    - [ ] features/article-item
+    - [ ] Ensure coverage is running & improve
+- [x] Dockerize your application (use a dockerfile and docker-compose)
+  - [x] development run
+  - [ ] STRETCH: production run
+  - [ ] STRETCH: improve user configuration
 
 #### Stretch
 
-- [ ] Split webpack bundle into new one for article/:id route
-- [ ] Ensure browser-based font resizing works as expected (a11y)
-- [x] Improve homepage
-- [ ] Add helmet titles
-- [ ] add 404 pages
-  - [ ] article#show -> article not found
-- [ ] add error boundaries to containers
-- [ ] Enable scss loading on a component basis (stop using base styles file)
-  - [ ] variables need to carry into new components
-- [x] Perfect match styles to mockup
+- [x] Improve match of styles to mockup
   - [x] targets:
     - [x] article headings
     - [x] article byline
     - [x] font sizing
     - [x] font paragraph line height
-- [ ] Remove Go button -> rely instead on deboucing onChange events on each input
 - [ ] Verify browsers
   - [ ] firefox
   - [ ] safari
   - [ ] mobile/chrome
   - [ ] mobile/safari
+- [ ] Ensure browser-based font resizing works as expected (a11y)
+- [ ] add error boundaries to containers
+- [x] Improve homepage
+- [ ] Split webpack bundle into new one for article/:id route
+- [ ] add 404 pages
+  - [ ] article#show -> article not found
+- [ ] Add helmet titles
+- [ ] Enable scss loading on a component basis (stop using base styles file)
+  - [ ] variables need to carry into new components
+- [ ] Remove Go button -> rely instead on deboucing onChange events on each input
 
 #### Clean
 
+- [ ] babel styled-components plugin
+- [ ] Wave all pages & patch
 - [ ] remove unused files
   - [ ] backend
     - [ ] json api?
   - [ ] frontend
     - [ ] graph folder?
-- [ ] babel styled-components plugin
 - [ ] resolve all TODOs
-- [ ] Wave all pages & patch
 - [ ] Figure out URL switching when running article search
-- [ ] Refactor SCSS to align precisely w/ components
 - [ ] mobile styles
+- [ ] Refactor SCSS to align precisely w/ components
 - [ ] verify file size and pagespeed
   - [ ] optimize where possible
