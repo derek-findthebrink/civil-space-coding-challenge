@@ -1,5 +1,6 @@
 // Libraries
 import React from "react";
+import PropTypes from "prop-types";
 import { useQuery, gql } from "@apollo/client";
 import { DateTime } from "luxon";
 
@@ -55,12 +56,23 @@ const ArticleItem = ({
       </header>
       <p>{introduction}</p>
       <footer>
-        <a href={`/article/${id}`} target="_blank">
+        <a href={`/article/${id}`} target="_blank" rel="noopener noreferrer">
           Read more
         </a>
       </footer>
     </article>
   );
+};
+ArticleItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  introduction: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  author: PropTypes.shape({
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const ArticlesContainer = () => {
