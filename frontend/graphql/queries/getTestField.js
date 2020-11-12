@@ -1,7 +1,7 @@
-import gql from "graphql-tag";
+// import gql from "graphql-tag";
 
-export const getIdea = gql`
-  {
-    testField
-  }
-`;
+// export const getIdea = gql`
+//   {
+//     testField
+//   }
+// `;
