@@ -1,7 +1,7 @@
 // Libraries
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
-import { ArticleItem } from "./ArticleItem";
+import { ArticleItem } from "../ArticleItem";
 
 const getArticlesListQuery = () => gql`
   query GetArticles {

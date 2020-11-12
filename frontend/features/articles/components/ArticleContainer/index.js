@@ -2,6 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useQuery, gql } from "@apollo/client";
+import { ArticleItem } from "../ArticleItem";
 
 const getArticleQuery = () => gql`
   query Article($id: String!) {
@@ -34,7 +35,20 @@ const ArticleContainer = ({
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error!</p>;
 
-  return <h2>Article!</h2>;
+  const {
+    article: { author, imageUrl, title, introduction, createdAt },
+  } = data;
+
+  return (
+    <ArticleItem
+      id={id}
+      author={author}
+      createdAt={createdAt}
+      title={title}
+      imageUrl={imageUrl}
+      introduction={introduction}
+    />
+  );
 };
 ArticleContainer.propTypes = {
   match: PropTypes.shape({
