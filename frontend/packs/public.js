@@ -56,3 +56,5 @@ const App = () => {
 const rootElement = document.querySelector("#react-app");
 
 render(<App />, rootElement);
+
+export default App;
