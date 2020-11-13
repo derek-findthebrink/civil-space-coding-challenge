@@ -9,10 +9,6 @@ module Types
       argument :article_id, String, required: true
     end
 
-    # def articles
-    #   Article.all
-    # end
-
     def article(article_id:)
       Article.find(article_id)
     end

@@ -30,6 +30,7 @@ module Resolvers
 
       def normalize_sort(value, branches = [])
         scope = Article.all
+        # TODO: move ordering to article model?
         scope = scope.order 'created_at DESC' if value == 'LATEST'
         scope = scope.order 'title ASC' if value == 'TITLE'
 

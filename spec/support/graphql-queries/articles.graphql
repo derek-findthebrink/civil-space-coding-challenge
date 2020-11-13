@@ -1,0 +1,14 @@
+query GetArticles($titleContains: String, $sortBy: ArticleSortEnum) {
+  articles(order: $sortBy, filter: { titleContains: $titleContains }) {
+    id
+    imageUrl
+    title
+    introduction
+    createdAt
+    author {
+      id
+      firstName
+      lastName
+    }
+  }
+}

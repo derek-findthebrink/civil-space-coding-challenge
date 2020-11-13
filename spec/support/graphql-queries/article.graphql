@@ -1,0 +1,17 @@
+query Article($id: String!) {
+  article(articleId: $id) {
+    id
+    imageUrl
+    title
+    introduction
+    body
+    createdAt
+    author {
+      id
+      firstName
+      lastName
+      __typename
+    }
+    __typename
+  }
+}
