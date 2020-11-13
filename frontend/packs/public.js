@@ -11,11 +11,11 @@ import { client } from "graphql/client";
 
 // Components
 // eslint-disable-next-line import/no-unresolved
-import Home from "home/components/Home";
+import Home from "../features/home/components/Home";
 // eslint-disable-next-line import/no-unresolved
-import ArticlesContainer from "articles/components/ArticlesContainer";
-import ArticleContainer from "articles/components/ArticleContainer";
-import Layout from '../components/Layout';
+import ArticlesContainer from "../features/articles/components/ArticlesContainer";
+import ArticleContainer from "../features/articles/components/ArticleContainer";
+import { Layout } from '../components/Layout';
 
 // Routes
 const ROOT = "/";
