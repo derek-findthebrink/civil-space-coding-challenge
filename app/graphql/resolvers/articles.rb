@@ -12,9 +12,13 @@ module Resolvers
       argument :title_contains, String, required: false
     end
 
-    option :filter, type: ArticleFilter, with: :apply_filter
-    option :order, type: Types::ArticleSortEnum, with: :apply_sort
+    class ArticleSortEnum < ::Types::BaseEnum
+      value "LATEST", "Sort by created at date, descending"
+      value "TITLE", "Sort by title, ascending"
+    end
 
+    option :filter, type: ArticleFilter, with: :apply_filter
+    option :order, type: ArticleSortEnum, with: :apply_sort
 
     private
 
