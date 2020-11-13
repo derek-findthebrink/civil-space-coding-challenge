@@ -1,0 +1,88 @@
+"""
+Well, its an article!
+"""
+type Article {
+  """
+  The person who wrote the article
+  """
+  author: Author!
+
+  """
+  The main part of the article
+  """
+  body: String
+
+  """
+  The date that the article was created on
+  """
+  createdAt: ISO8601DateTime!
+
+  """
+  The ID of the article
+  """
+  id: ID!
+
+  """
+  The URL of the image attached to the article
+  """
+  imageUrl: String
+
+  """
+  The start of the article
+  """
+  introduction: String
+
+  """
+  The title of the article
+  """
+  title: String
+}
+
+input ArticleFilter {
+  titleContains: String
+}
+
+enum ArticleSortEnum {
+  """
+  Sort by created at date, descending
+  """
+  LATEST
+
+  """
+  Sort by title, ascending
+  """
+  TITLE
+}
+
+"""
+A person this time!
+"""
+type Author {
+  """
+  The author's first name
+  """
+  firstName: String
+
+  """
+  The ID of the article
+  """
+  id: ID!
+
+  """
+  The author's last name
+  """
+  lastName: String
+}
+
+"""
+An ISO 8601-encoded datetime
+"""
+scalar ISO8601DateTime
+
+type Query {
+  """
+  Find an article by ID
+  """
+  article(articleId: String!): Article
+  articles(filter: ArticleFilter, order: ArticleSortEnum): [Article!]
+}

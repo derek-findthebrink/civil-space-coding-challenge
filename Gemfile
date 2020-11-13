@@ -13,12 +13,17 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.4.6', require: false
 
 gem 'search_object_graphql', '0.3.1'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'rspec-graphql_matchers'
 end
 
 group :development do
@@ -26,6 +31,13 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'guard-rspec', '~> 4.7.3', require: false
+end
+
+group :test do
+  gem 'simplecov', require: false
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
