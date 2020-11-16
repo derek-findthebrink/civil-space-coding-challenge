@@ -113,6 +113,9 @@ use the docker-compose.test.yml file, install gems and npm packages locally, pre
 
 ### Derek's working notes
 
+These are pretty messy, but they can perhaps give you a sense of what I would have
+completed had this been a project going in to production.
+
 #### Requirements
 
 - [x] When users navigate to the /articles route, a list of article should be displayed matching the designs (ignore the search bar and sorting options unless you're completing the relevant bonus objectives)
@@ -208,15 +211,16 @@ use the docker-compose.test.yml file, install gems and npm packages locally, pre
 
 #### Clean
 
-- [ ] Wave & axe (accessibility checkers) all pages, and patch
-- [ ] resolve all TODOs
-- [ ] Figure out URL switching when running article search
-- [ ] mobile styles
-- [ ] verify file size and pagespeed
-  - [ ] optimize where possible
+- [x] resolve TODOs
+  - Resolved most, still some left over
 
 #### Not Doing
 
+- verify file size and pagespeed
+  - optimize where possible
+- Figure out successful URL switching when running article search
+- Wave & axe (accessibility checkers) all pages, and patch
+- mobile styles
 - Ensure browser-based font resizing works as expected (a11y)
 - Refactor SCSS to align precisely w/ components
 - Refactor app/graphql/types folder contents

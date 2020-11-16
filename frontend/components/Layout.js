@@ -1,4 +1,3 @@
-// TODO: move into folder named Layout and rename to index.js
 import React from "react";
 import PropTypes from "prop-types";
 

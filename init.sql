@@ -1,3 +1,3 @@
 CREATE USER civilspace_challenge;
--- TODO: consider less permissive role, haha
+-- TODO: grant only required permissions
 ALTER USER civilspace_challenge WITH SUPERUSER;

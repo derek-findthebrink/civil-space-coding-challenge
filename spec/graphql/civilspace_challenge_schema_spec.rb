@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe CivilspaceChallengeSchema, type: :graphql do
   # Helpers
   # ----------------------------------------------------------------------------
-  # TODO: move these to their own module
   def execute_query(query, variables, **kwargs)
     CivilspaceChallengeSchema.execute(
       query,
