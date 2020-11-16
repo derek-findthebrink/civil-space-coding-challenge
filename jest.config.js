@@ -1,10 +1,11 @@
 module.exports = {
-  setupFilesAfterEnv: ["<rootDir>/setUpTests.js"],
+  setupFilesAfterEnv: ["<rootDir>/rtl.setup.js"],
   collectCoverage: true,
-  coverageDirectory: '<rootDir>/frontend/coverage',
+  coverageDirectory: "<rootDir>/frontend/coverage",
   collectCoverageFrom: [
     "frontend/**/*.js",
     "!frontend/**/*.test.js",
+    "!frontend/coverage/**/*.js",
     "!config/**/*.js",
   ],
   coverageThreshold: {

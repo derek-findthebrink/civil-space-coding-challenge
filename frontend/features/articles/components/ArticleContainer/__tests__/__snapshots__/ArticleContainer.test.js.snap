@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering matches snapshot 1`] = `
+<DocumentFragment>
+  <header>
+    <h1>
+      Article title
+    </h1>
+    <div>
+      <p
+        class="article-item__byline"
+      >
+        <small>
+          Jenny Rhubarblee | 
+          <time
+            datetime="2018-00-16 18:00"
+          >
+            Jan 16, 2018, 6:00 PM
+          </time>
+        </small>
+      </p>
+    </div>
+  </header>
+  <img
+    alt="This is best described by..."
+    class="article__image"
+    src="http://www.image.com/url"
+  />
+  <p>
+    Wow this is the article introduction!
+  </p>
+  <p>
+    I am the body!!!
+  </p>
+</DocumentFragment>
+`;

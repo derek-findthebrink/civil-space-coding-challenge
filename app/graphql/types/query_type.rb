@@ -10,7 +10,11 @@ module Types
     end
 
     def article(article_id:)
-      Article.find(article_id)
+      begin
+        Article.find(article_id)
+      rescue ActiveRecord::RecordNotFound
+        nil
+      end
     end
   end
 end

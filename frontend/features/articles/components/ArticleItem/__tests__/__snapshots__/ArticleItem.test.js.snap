@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering matches snapshot 1`] = `
+<DocumentFragment>
+  <article
+    aria-label="Article"
+    class="article-item"
+    role="contentinfo"
+  >
+    <hr
+      class="article-item__accent-hr"
+    />
+    <h1>
+      I am the ArticleHeader
+    </h1>
+    <div
+      class="sc-bdfBwQ HzSZM article-item__content-wrapper"
+    >
+      <div
+        class="article-item__content"
+      >
+        <p
+          class="article-item__intro"
+        >
+          This is the introduction!
+        </p>
+        <footer>
+          <a
+            class="article-item__read-more"
+            href="/article/123"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Read More
+          </a>
+        </footer>
+      </div>
+    </div>
+  </article>
+</DocumentFragment>
+`;

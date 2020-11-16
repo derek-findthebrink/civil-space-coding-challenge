@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { useQuery, gql } from "@apollo/client";
 import { ArticleHeader } from "../ArticleHeader";
 
-const getArticleQuery = () => gql`
+export const GET_ARTICLE_QUERY = gql`
   query Article($id: String!) {
     article(articleId: $id) {
       id
@@ -22,12 +22,12 @@ const getArticleQuery = () => gql`
   }
 `;
 
-const ArticleContainer = ({
+export const ArticleContainer = ({
   match: {
     params: { id },
   },
 }) => {
-  const { loading, error, data } = useQuery(getArticleQuery(), {
+  const { loading, error, data } = useQuery(GET_ARTICLE_QUERY, {
     variables: {
       id,
     },
