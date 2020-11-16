@@ -79,7 +79,9 @@ Here are a couple helpful articles that inspired some of the setup for this appl
 
 ## Your Considerations/Setup
 
-### Run Instructions
+### Instructions
+
+#### Run
 
 - Clone the repository
 - In the repository
@@ -89,6 +91,25 @@ Here are a couple helpful articles that inspired some of the setup for this appl
   - Wait for the build process to finish
   - Wait for the rails container to eventually start (a line should eventually show that says `Puma starting in single mode...`)
   - Navigate to localhost:3000 on your favourite browser
+
+#### Tests
+
+Tests currently need to be run outside of the docker environment. To run the tests,
+use the docker-compose.test.yml file, install gems and npm packages locally, prepare the database, and then run the tests.
+
+- Run the test docker-compose file
+  - `docker-compose -f docker-compose.test.yml up`
+  - Wait for the database to initialize
+- Install all dependencies
+  - `bundle install`
+  - `npm install`
+- Prepare the database
+  - Change the database to the currently running docker container, exposed on localhost
+    - Change the line `host: db` in config/database.yml to `host: localhost`
+  - `RAILS_ENV=test bin/rake db:test:prepare`
+- Run the tests
+  - Rails: `RAILS_ENV=test bundle exec rspec`
+  - Frontend: `npm run test`
 
 ### Derek's working notes
 
@@ -134,25 +155,28 @@ Here are a couple helpful articles that inspired some of the setup for this appl
   - [x] add graphql setup
   - [x] implement frontend
 - [ ] Use a state management library such as Redux
-- [ ] Add unit tests! We like RSpec, Jest, and React Testing Library
-  - [ ] rails/controllers
-    - [ ] articles#index
-    - [ ] articles#show
-  - [ ] rails/graph
-    - [ ] Article tests
-    - [ ] Author tests
-      - [ ] type
-      - [ ] filtering
-      - [ ] sorting
-    - [ ] Schema execution tests
-  - [ ] frontend
+- [x] Add unit tests! We like RSpec, Jest, and React Testing Library
+  - [x] rails/controllers
+    - [x] articles#index
+    - [x] articles#show
+  - [x] rails/graph
+    - [x] Article tests
+    - [x] Author tests
+      - [x] type
+      - [x] filtering
+      - [x] sorting
+    - [x] Schema execution tests
+  - [x] frontend
     - [ ] packs/application.js
-    - [ ] components/layout
+    - [x] components/layout
+    - [x] features/articles-container
+    - [x] features/article-container
+    - [x] features/article-header
+    - [x] features/article-item
     - [ ] features/articles-container
-    - [ ] features/article-container
-    - [ ] features/article-header
-    - [ ] features/article-item
-    - [ ] Ensure coverage is running & improve
+    - [ ] features/home
+    - [x] Ensure coverage is running & improve
+  - [ ] STRETCH: enable test run in docker
 - [x] Dockerize your application (use a dockerfile and docker-compose)
   - [x] development run
   - [ ] STRETCH: production run
@@ -171,10 +195,10 @@ Here are a couple helpful articles that inspired some of the setup for this appl
   - [ ] safari
   - [ ] mobile/chrome
   - [ ] mobile/safari
-- [ ] Ensure browser-based font resizing works as expected (a11y)
 - [ ] add error boundaries to containers
 - [x] Improve homepage
 - [ ] Split webpack bundle into new one for article/:id route
+  - [ ] alternatively use import to cause bundle splitting
 - [ ] add 404 pages
   - [ ] article#show -> article not found
 - [ ] Add helmet titles
@@ -184,16 +208,24 @@ Here are a couple helpful articles that inspired some of the setup for this appl
 
 #### Clean
 
-- [ ] babel styled-components plugin
-- [ ] Wave all pages & patch
-- [ ] remove unused files
-  - [ ] backend
-    - [ ] json api?
-  - [ ] frontend
-    - [ ] graph folder?
+- [ ] Wave & axe (accessibility checkers) all pages, and patch
 - [ ] resolve all TODOs
 - [ ] Figure out URL switching when running article search
 - [ ] mobile styles
-- [ ] Refactor SCSS to align precisely w/ components
 - [ ] verify file size and pagespeed
   - [ ] optimize where possible
+
+#### Not Doing
+
+- Ensure browser-based font resizing works as expected (a11y)
+- Refactor SCSS to align precisely w/ components
+- Refactor app/graphql/types folder contents
+  - base types should be in own folder
+  - article and author types should be in own folder
+- babel styled-components plugin
+- Improving simplecov implementation to actually detect missing coverage
+- remove unused files
+  - backend
+    - json api?
+  - frontend
+    - graph folder?
